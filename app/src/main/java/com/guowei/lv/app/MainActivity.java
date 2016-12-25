@@ -1,4 +1,4 @@
-package com.guowei.lv.lib;
+package com.guowei.lv.app;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.guowei.lv.combineddatetimepickerdialog.lib.CombinedDateTimePickerDialog;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.guowei.lv.lib;
+package com.guowei.lv.combineddatetimepickerdialog.lib;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
