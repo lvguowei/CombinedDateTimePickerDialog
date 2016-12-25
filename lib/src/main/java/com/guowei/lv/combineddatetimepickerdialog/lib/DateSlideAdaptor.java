@@ -14,11 +14,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class DateSlideAdaptor extends PagerAdapter {
+class DateSlideAdaptor extends PagerAdapter {
 
-    public static final int FIRST_ITEM_INDEX = 0;
-    public static final int MIDDLE_ITEM_INDEX = 1;
-    public static final int LAST_ITEM_INDEX = 2;
+    static final int FIRST_ITEM_INDEX = 0;
+    static final int MIDDLE_ITEM_INDEX = 1;
+    static final int LAST_ITEM_INDEX = 2;
 
     private Context context;
 
@@ -26,7 +26,7 @@ public class DateSlideAdaptor extends PagerAdapter {
 
     private OnItemClickedListener listener;
 
-    public void updateDate(int year, int month, int dayOfMonth) {
+    void updateDate(int year, int month, int dayOfMonth) {
         Calendar c = Calendar.getInstance();
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
@@ -46,11 +46,11 @@ public class DateSlideAdaptor extends PagerAdapter {
         notifyDataSetChanged();
     }
 
-    public interface OnItemClickedListener {
+    interface OnItemClickedListener {
         void onDateSlideItemClick(int year, int month, int day);
     }
 
-    public DateSlideAdaptor(Context context, OnItemClickedListener listener) {
+    DateSlideAdaptor(Context context, OnItemClickedListener listener) {
         this.context = context;
         this.listener = listener;
         this.dates = new ArrayList<>();
@@ -71,7 +71,7 @@ public class DateSlideAdaptor extends PagerAdapter {
         return dates.get(MIDDLE_ITEM_INDEX);
     }
 
-    public int getCurrentYear() {
+    int getCurrentYear() {
         Date d = getCurrentDate();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(d);
@@ -79,7 +79,7 @@ public class DateSlideAdaptor extends PagerAdapter {
 
     }
 
-    public int getCurrentMonth() {
+    int getCurrentMonth() {
         Date d = getCurrentDate();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(d);
@@ -88,7 +88,7 @@ public class DateSlideAdaptor extends PagerAdapter {
 
     }
 
-    public int getCurrentDay() {
+    int getCurrentDay() {
         Date d = getCurrentDate();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(d);
@@ -101,7 +101,7 @@ public class DateSlideAdaptor extends PagerAdapter {
         return dates.size();
     }
 
-    public void moveNext() {
+    void moveNext() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(dates.get(LAST_ITEM_INDEX));
         calendar.add(Calendar.DAY_OF_MONTH, 1);
@@ -111,7 +111,7 @@ public class DateSlideAdaptor extends PagerAdapter {
         notifyDataSetChanged();
     }
 
-    public void movePrev() {
+    void movePrev() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(dates.get(0));
         calendar.add(Calendar.DAY_OF_MONTH, -1);
@@ -135,13 +135,13 @@ public class DateSlideAdaptor extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         Date date = dates.get(position);
         LayoutInflater inflater = LayoutInflater.from(context);
-        TextView tv = (TextView) inflater.inflate(R.layout.date_slide_view, container, false);
+        TextView tv = (TextView) inflater.inflate(R.layout.lv_date_slide_view, container, false);
         if (DateTimeUtils.isToday(date)) {
-            tv.setText(R.string.today);
+            tv.setText(R.string.lv_today);
         } else if (DateTimeUtils.isTomorrow(date)) {
-            tv.setText(R.string.tomorrow);
+            tv.setText(R.string.lv_tomorrow);
         } else if (DateTimeUtils.isYesterday(date)) {
-            tv.setText(R.string.yesterday);
+            tv.setText(R.string.lv_yesterday);
         } else {
             tv.setText(DateTimeUtils.formatCurrentTime(date));
         }

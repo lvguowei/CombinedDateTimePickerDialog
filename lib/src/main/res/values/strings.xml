@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">combinedDateTimePickerDialog</string>
-    <string name="ok">Ok</string>
-    <string name="cancel">Cancel</string>
-    <string name="today">Today</string>
-    <string name="tomorrow">Tomorrow</string>
-    <string name="yesterday">Yesterday</string>
+    <string name="lv_app_name">combinedDateTimePickerDialog</string>
+    <string name="lv_ok">Ok</string>
+    <string name="lv_cancel">Cancel</string>
+    <string name="lv_today">Today</string>
+    <string name="lv_tomorrow">Tomorrow</string>
+    <string name="lv_yesterday">Yesterday</string>
 </resources>
